@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply antialiased overflow-x-hidden;
+  }
+}
+
+@keyframes flowingNeon {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #FF5E00 0%, #FFB703 35%, #219EBC 70%, #023047 100%);
+  }
+  
+  .text-brand-gradient {
+    background: linear-gradient(135deg, #FF5E00 0%, #FFB703 35%, #219EBC 70%, #023047 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .neon-flow-border {
+    background: linear-gradient(90deg, #FF5E00, #FFB703, #00F5D4, #219EBC, #FF5E00);
+    background-size: 300% 300%;
+    animation: flowingNeon 4s linear infinite;
+  }
+
+  .neon-flow-border-slow {
+    background: linear-gradient(135deg, #FF5E00, #FFB703, #00F5D4, #219EBC, #FF5E00);
+    background-size: 400% 400%;
+    animation: flowingNeon 6s ease infinite;
+  }
+}
